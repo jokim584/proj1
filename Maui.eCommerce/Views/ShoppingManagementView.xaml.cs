@@ -1,6 +1,6 @@
 using Maui.eCommerce.ViewModels;
 
-namespace Maui.eCommerce.Views;
+namespace Maui.eCommerce.ViewsModels;
 
 public partial class ShoppingManagementView : ContentPage
 {
@@ -32,4 +32,23 @@ public partial class ShoppingManagementView : ContentPage
 		(BindingContext as ShoppingManagementViewModel)?.RefreshUX();
 
     }
+
+	private void InLineDeleteClicked(object sender, EventArgs e)
+	{
+        (BindingContext as ShoppingManagementViewModel)?.RefreshUX();
+    }
+
+	private void SortToggled(object sender, CheckedChangedEventArgs e)
+	{
+        bool isChecked = e.Value;
+        if (isChecked)
+		{
+			(BindingContext as ShoppingManagementViewModel)?.NameSort();
+		}
+		else
+			(BindingContext as ShoppingManagementViewModel)?.PSort();
+
+    }
+
+	
 }

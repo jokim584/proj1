@@ -72,7 +72,7 @@ namespace Library.eCommerce.Services
             {
                 item.Id = LastKey + 1;
                 item.Product.Id = item.Id;
-                item.Product.Amount = (int)item.Quantity; 
+                //item.Product.Amount = (int)item.Quantity; 
                 item.Product.Price = (decimal)item.Cost;
                 Products.Add(item);
             }
@@ -81,7 +81,7 @@ namespace Library.eCommerce.Services
                 var existingItem = Products.FirstOrDefault(p => p.Id == item.Id);
                //added below
                 existingItem.Product.Name = item.Product.Name;
-                existingItem.Product.Amount = (int)item.Quantity;
+                //existingItem.Product.Amount = (int)item.Quantity;
                 existingItem.Product.Price = (decimal)item.Cost;
                 existingItem.Quantity = item.Quantity;
                // added above bc the price and quantity wouldnt change*/

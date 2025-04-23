@@ -15,6 +15,16 @@ namespace Maui.eCommerce.ViewModels
     public class InventoryManagementViewModel : INotifyPropertyChanged
     {
         public Item? SelectedProduct { get; set; }
+        public string Sort { get; set; }
+
+        public void NameSort()
+        {
+            Sort = "Name";
+        }
+        public void PSort()
+        {
+            Sort = "Price";
+        }
         public string? Query { get; set; }
         private ProductServiceProxy _svc = ProductServiceProxy.Current; //most things are passed by refernce
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -36,6 +46,12 @@ namespace Maui.eCommerce.ViewModels
             get
             {
                 var filteredList = _svc.Products.Where(p => p?.Product?.Name?.ToLower().Contains(Query?.ToLower() ?? string.Empty) ?? false);
+                if(Sort == "Name")
+                {
+                    filteredList = filteredList.OrderBy(p => p?.Product?.Name);
+                }
+                else
+                    filteredList = filteredList.OrderBy(p => p?.Product?.Price);
                 return new ObservableCollection<Item?>(filteredList);
             }
         }

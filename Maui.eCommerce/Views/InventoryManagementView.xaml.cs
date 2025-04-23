@@ -1,7 +1,7 @@
 using Library.eCommerce.Services;
 using Maui.eCommerce.ViewModels;
 
-namespace Maui.eCommerce.Views;
+namespace Maui.eCommerce.ViewsModels;
 
 public partial class InventoryManagementView : ContentPage
 {
@@ -41,5 +41,23 @@ public partial class InventoryManagementView : ContentPage
     {
         (BindingContext as InventoryManagementViewModel)?.RefreshProductList();
     }
+
+    private void SortToggled(object sender, CheckedChangedEventArgs e)
+    {
+        bool isChecked = e.Value;
+        if (isChecked)
+        {
+            (BindingContext as InventoryManagementViewModel)?.NameSort();
+            (BindingContext as InventoryManagementViewModel)?.RefreshProductList();
+        }
+        else
+        {
+            (BindingContext as InventoryManagementViewModel)?.PSort();
+            (BindingContext as InventoryManagementViewModel)?.RefreshProductList();
+        }
+        
+    }
+
+ 
 
 }

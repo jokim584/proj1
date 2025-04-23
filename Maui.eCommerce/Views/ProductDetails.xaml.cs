@@ -2,7 +2,7 @@ using Library.eCommerce.Services;
 using Maui.eCommerce.ViewModels;
 using proj1.Models;
 
-namespace Maui.eCommerce.Views;
+namespace Maui.eCommerce.ViewsModels;
 
 [QueryProperty(nameof(ProductId),"productId")]
 public partial class ProductDetails : ContentPage

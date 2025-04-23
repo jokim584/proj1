@@ -12,6 +12,7 @@ namespace Library.eCommerce.Services
     {
         private ProductServiceProxy _prodSvc = ProductServiceProxy.Current;
         private List<Item> items;
+        public decimal Tax { get; set; } = 7;
         public List<Item> CartItems
         {
             get

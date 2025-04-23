@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Maui.eCommerce.Views.CheckOutView"
+             x:Class="Maui.eCommerce.ViewsModels.CheckOutView"
              Title="CheckOutView"
              NavigatedTo="ContentPage_NavigatedTo">
 
     <VerticalStackLayout>
+              <Grid 
+            Padding="20"
+            ColumnSpacing="12"
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label 
+        Text="Your current tax percent:" 
+        VerticalOptions="Center"
+        HorizontalOptions="Start"
+        Grid.Column="0" />
+
+            <Label 
+        Text="{Binding Taxed}" 
+        
+
+        VerticalOptions="Center"
+        HorizontalOptions="End"
+        Grid.Column="1" />
+        </Grid>
         <ListView ItemsSource="{Binding ShoppingCart}" 
                   SelectedItem="{Binding SelectedCartItem}">
             <ListView.ItemTemplate>
